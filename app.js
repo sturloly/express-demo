@@ -89,6 +89,6 @@ let articles = require('./routes/articles');
 app.use('/articles', articles)
 
 //start server
-app.listen(3000,function(){
-  console.log("Server Started On Port 3000....")
+app.listen(80,function(){
+  console.log("Server Started On Port 80...")
 });
