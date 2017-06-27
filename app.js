@@ -91,6 +91,6 @@ app.use('/articles', articles)
 app.use('/users', users)
 
 //start server
-app.listen(8000,function(){
-  console.log("Server Started On Port 8000...")
+app.listen(80,function(){
+  console.log("Server Started On Port 80...")
 });
