@@ -86,9 +86,11 @@ app.get('/', function(req, res){
 });
 
 let articles = require('./routes/articles');
+let users = require('./routes/users');
 app.use('/articles', articles)
+app.use('/users', users)
 
 //start server
-app.listen(80,function(){
-  console.log("Server Started On Port 80...")
+app.listen(8000,function(){
+  console.log("Server Started On Port 8000...")
 });
