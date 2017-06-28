@@ -15,12 +15,14 @@ router.get('/register', function(req, res){
 // register process
 router.post('/register', function(req, res){
   const name = req.body.name;
+  const invite = req.body.invite;
   const email = req.body.email;
   const username = req.body.username;
   const password = req.body.password;
   const password2 = req.body.password2;
 
   req.checkBody('name', 'Name is required').notEmpty();
+  req.checkBody('invite', 'Invite is not valid').equals('your invite code');
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('username', 'Username is required').notEmpty();
@@ -52,7 +54,7 @@ router.post('/register', function(req, res){
             console.log(err);
             return
           } else {
-            req.flash('success', 'You are now register. congrats');
+            req.flash('success', 'You are now registered. Congrats');
             res.redirect('/users/login');
           }
         })
@@ -74,5 +76,12 @@ router.post('/login', function(req, res, next){
     failureFlash:true
   })(req, res, next)
 });
+
+// logout
+router.get('/logout', function(req, res){
+    req.logout();
+    req.flash('success', 'You are logged out');
+    res.redirect('/users/login');
+})
 
 module.exports = router;

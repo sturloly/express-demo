@@ -20,12 +20,16 @@ html
             li
               a(href='/') Home
             li
-              a(href='/articles/add') Add Article
+              a(href='/articles/add') Write
           ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/users/register') Register
-            li
-              a(href='/users/login') Login
+            if user
+              li 
+                a(href='/users/logout') Logout
+            else
+              li
+                a(href='/users/register') Register
+              li
+                a(href='/users/login') Login
     .container
       != messages('message', locals)
       if errors
@@ -33,9 +37,10 @@ html
           div(class='alert alert-danger') #{error.msg}
       block content
       br
-      hr
+    .container.footer
       footer
-        p Copyright &copy; 2017
+      hr
+      p Copyright &copy; 2017
     script(src='/bower_components/jquery/dist/jquery.js')
     script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     script(src='/js/main.js')

@@ -80,6 +80,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
+// have to be here before home route
+app.get('*', function(req, res, next){
+  res.locals.user = req.user || null;
+  next();
+});
+
 // home route
 app.get('/', function(req, res){
   Article.find({}, function(err, articles){
@@ -98,6 +104,7 @@ let articles = require('./routes/articles');
 let users = require('./routes/users');
 app.use('/articles', articles)
 app.use('/users', users)
+
 
 //start server
 app.listen(80,function(){
