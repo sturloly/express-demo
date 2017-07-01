@@ -25,6 +25,8 @@ html
           ul.nav.navbar-nav.navbar-right
             if user
               li 
+                a(href='#') User : #{user.name}
+              li 
                 a(href='/users/logout') Logout
             else
               li

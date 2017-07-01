@@ -1,40 +1,9 @@
 extends layout
 
 block content
-  if user
     h1 #{title}
     br
     ul.list-group
       each article, i in articles
         li.list-group-item
           a(href="/articles/"+article._id)= article.title
-          div premium articles  
-  else
-    h1 Welcome
-    hr
-    ul.list-group
-        li.list-group-item
-          a(href='https://www.sturloly.com/2017/06/12/%E5%90%AC%E8%AF%91conways-game-of-life-is-sample-game-by-john-conway/') [中英]康威的游戏人生图文解说 – CONWAY’S GAME OF LIFE EXPLANATION
-        li.list-group-item
-          a(href='https://www.sturloly.com/2017/06/11/%E8%AF%AD%E4%B9%89%E5%8C%96%E7%89%88%E6%9C%AC-2-0-0-semantic-versioning/') [转载]语义化版本 2.0.0 | SEMANTIC VERSIONING
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-        li.list-group-item
-          a ......
-  if user
-    h1 More 
-      h6 to be continued...
-  else
-    div.word to view more please register
