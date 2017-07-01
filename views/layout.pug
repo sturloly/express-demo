@@ -19,8 +19,9 @@ html
           ul.nav.navbar-nav
             li
               a(href='/') Home
-            li
-              a(href='/articles/add') Write
+            if user
+              li
+                a(href='/articles/add') Write
           ul.nav.navbar-nav.navbar-right
             if user
               li 
