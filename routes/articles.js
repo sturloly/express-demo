@@ -4,6 +4,9 @@ const router = express.Router();
 // bring in article models
 let Article = require('../models/article')
 
+// user in article models
+let User = require('../models/user')
+
 // add route
 router.get('/add' ,function(req, res) {
   res.render('add_article', {
@@ -66,8 +69,11 @@ router.post('/edit/:id', function(req, res) {
 // get single article
 router.get('/:id', function(req, res){
   Article.findById(req.params.id, function(err, article) {
-    res.render('article', {
-      article: article
+    User.findById(article.author, function(err, user){
+      res.render('article', {
+        article: article,
+        author: user.name,
+      });
     });
   });
 });
